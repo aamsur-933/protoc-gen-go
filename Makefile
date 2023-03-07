@@ -1,3 +1,3 @@
 .PHONY: docker
 docker:
-	docker build . -t mfycheng/protoc-gen-go
+	docker build . -t aamsur-933/protoc-gen-go
