@@ -1,8 +1,5 @@
 #!/bin/bash -e
 
 for f in $(find /proto/ -type f -name "*.proto"); do
-    protoc -I/proto-common:/proto $f \
-            --go_out=/genproto --go_opt=module=$MODULE_PREFIX \
-            --go-grpc_out=/genproto --go-grpc_opt=module=$MODULE_PREFIX \
-            --validate_opt=module=$MODULE_PREFIX --validate_out=lang=go:../genproto
+    protoc --go_out=./ --go_opt=paths=source_relative --go-grpc_out=./ --go-grpc_opt=paths=source_relative,require_unimplemented_servers=false $f
 done
